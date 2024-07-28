@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { styled, Typography } from '@mui/material';
 
 const BackgroundImage = styled('div') ({
-  backgroundImage: 'url(../../public/images/background.jpg)',
+  backgroundImage: 'url(/images/background.jpg)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   height: '100vh',
