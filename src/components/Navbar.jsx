@@ -6,7 +6,7 @@ function Navbar() {
 
   return (
     <>
-      <AppBar>
+      <AppBar position="static">
 
         <Toolbar>
 
