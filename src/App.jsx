@@ -8,6 +8,7 @@ import { Container } from '@mui/material'
 function App() {
 
   const [products, setProducts] = useState([]);
+  const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +17,7 @@ function App() {
         const data = await response.json();
 
         setProducts(data.products);
+        setShoppingCart(data.products);
 
       } catch (error) {
         console.error('Error: ', error)
@@ -30,7 +32,7 @@ function App() {
     <>
 
       
-        <Navbar></Navbar>
+        <Navbar shoppingCart={ shoppingCart }></Navbar>
 
         <Routes>
           <Route path='/' element={ <Home /> } />

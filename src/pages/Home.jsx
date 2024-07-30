@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { styled, Typography } from '@mui/material';
+import { Button, Drawer, styled, Typography } from '@mui/material';
+import ShoppingCart from '../components/ShoppingCart';
 
 const BackgroundImage = styled('div') ({
   backgroundImage: 'url(/images/background.avif)',

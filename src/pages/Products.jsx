@@ -4,13 +4,11 @@ import Product from '../components/Product';
 
 function Products( { products } ) {
 
-  console.log(products);
-
 
 
   return (
     <>
-      <Container sx={{width: 900}}>
+      <Container>
 
         <Grid container spacing={2} alignItems="stretch" sx={{ my: 2 }}>
 

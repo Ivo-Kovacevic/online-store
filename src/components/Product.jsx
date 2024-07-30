@@ -35,7 +35,7 @@ function Product( { product } ) {
                     </Box>
 
                     <CardActions>
-                        <Button variant="outlined" sx={{ width: '100%'}}>Add to cart</Button>
+                        <Button variant="contained" sx={{ width: '100%'}}>Add to cart</Button>
                     </CardActions>
 
                         
