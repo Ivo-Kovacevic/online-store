@@ -13,11 +13,13 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://fakestoreapi.in/api/products?limit=20');
+        const response = await fetch('https://fakestoreapi.in/api/products?limit=12');
         const data = await response.json();
 
         setProducts(data.products);
         setShoppingCart(data.products);
+
+        
 
       } catch (error) {
         console.error('Error: ', error)

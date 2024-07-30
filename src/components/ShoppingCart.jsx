@@ -10,7 +10,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Typography } from '@mui/material';
+import { CardMedia, Typography } from '@mui/material';
+import { Clear } from '@mui/icons-material';
+
+const capitalizeFirstLetter = (word) => {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
 
 export default function ShoppingCart( { shoppingCart } ) {
 
@@ -20,13 +25,33 @@ export default function ShoppingCart( { shoppingCart } ) {
     setOpen(newOpen);
   };
 
-  const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+  const ShoppingCartList = (
+    <Box sx={{ width: 500 }} role="presentation" onClick={toggleDrawer(false)}>
 
-        <Typography variant='h5' component='h1' sx={{ m: 1 }}>Shopping cart</Typography>
+        <Typography variant='h3' component='h1' sx={{ m: 4 }}>Shopping cart</Typography>
 
         <Divider />
         
+        <List>
+          {shoppingCart.map((item, index) => (
+            <ListItem key={index} disablePadding sx={{ alignItems: 'stretch' }}>
+
+              <ListItemButton sx={{ flexGrow: 1 }}>
+                <Box component='img' src={item.image} sx={{ width: 150 }} />
+                <ListItemText>
+                  <Typography>{capitalizeFirstLetter(item.brand)}</Typography>
+                  <Typography>{item.model}</Typography>
+                  <Typography variant='h6'>{item.price}.99 €</Typography>
+                </ListItemText>
+              </ListItemButton>
+
+              <Button>
+                <Clear></Clear>Remove
+              </Button>
+
+            </ListItem>
+          ))}
+        </List>
     </Box>
   );
 
@@ -36,7 +61,7 @@ export default function ShoppingCart( { shoppingCart } ) {
         <ShoppingCartIcon></ShoppingCartIcon>
       </Button>
       <Drawer open={open} onClose={toggleDrawer(false)} anchor={'right'}>
-        {DrawerList}
+        {ShoppingCartList}
       </Drawer>
     </div>
   );
