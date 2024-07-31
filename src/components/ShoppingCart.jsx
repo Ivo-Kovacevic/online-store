@@ -17,7 +17,7 @@ const capitalizeFirstLetter = (word) => {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-export default function ShoppingCart( { shoppingCart } ) {
+export default function ShoppingCart( { shoppingCart, removeItemFromCart } ) {
 
   const [open, setOpen] = React.useState(false);
 
@@ -26,7 +26,7 @@ export default function ShoppingCart( { shoppingCart } ) {
   };
 
   const ShoppingCartList = (
-    <Box sx={{ width: 500 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 500 }} role="presentation">
 
         <Typography variant='h3' component='h1' sx={{ m: 4 }}>Shopping cart</Typography>
 
@@ -45,7 +45,7 @@ export default function ShoppingCart( { shoppingCart } ) {
                 </ListItemText>
               </ListItemButton>
 
-              <Button>
+              <Button onClick={() => removeItemFromCart(item)}>
                 <Clear></Clear>Remove
               </Button>
 
@@ -59,6 +59,7 @@ export default function ShoppingCart( { shoppingCart } ) {
     <div>
       <Button onClick={toggleDrawer(true)} sx={ { color: 'white', ':hover': { bgcolor: '#455a64' } } }>
         <ShoppingCartIcon></ShoppingCartIcon>
+        <Typography sx={{ color: 'white'}}>{shoppingCart.length} items</Typography>
       </Button>
       <Drawer open={open} onClose={toggleDrawer(false)} anchor={'right'}>
         {ShoppingCartList}

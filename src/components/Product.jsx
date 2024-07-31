@@ -6,7 +6,7 @@ const capitalizeFirstLetter = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-function Product( { product } ) {
+function Product( { product, addItemToCart } ) {
 
     return (
         <>
@@ -35,7 +35,7 @@ function Product( { product } ) {
                     </Box>
 
                     <CardActions>
-                        <Button variant="contained" sx={{ width: '100%'}}>Add to cart</Button>
+                        <Button onClick={() => addItemToCart(product)} variant="contained" sx={{ width: '100%'}}>Add to cart</Button>
                     </CardActions>
 
                         

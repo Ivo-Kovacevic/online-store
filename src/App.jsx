@@ -16,10 +16,7 @@ function App() {
         const response = await fetch('https://fakestoreapi.in/api/products?limit=12');
         const data = await response.json();
 
-        setProducts(data.products);
-        setShoppingCart(data.products);
-
-        
+        setProducts(data.products);        
 
       } catch (error) {
         console.error('Error: ', error)
@@ -30,15 +27,23 @@ function App() {
 
   }, []);
 
+  const addItemToCart = (item) => {
+    setShoppingCart(currentShoppingCart => [...currentShoppingCart, item]);
+  }
+
+  const removeItemFromCart = (item) => {
+    setShoppingCart(currentShoppingCart => currentShoppingCart.filter(cartItem => cartItem !== item));
+  }
+
   return (
     <>
 
       
-        <Navbar shoppingCart={ shoppingCart }></Navbar>
+        <Navbar shoppingCart={ shoppingCart } removeItemFromCart={ removeItemFromCart }></Navbar>
 
         <Routes>
           <Route path='/' element={ <Home /> } />
-          <Route path='/products' element={ <Products products={ products } /> } />
+          <Route path='/products' element={ <Products products={ products } addItemToCart={ addItemToCart }/> } />
         </Routes>
 
         

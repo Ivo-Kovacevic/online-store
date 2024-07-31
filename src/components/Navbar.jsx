@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import ShoppingCart from './ShoppingCart'
 
 
-function Navbar( { shoppingCart } ) {
+function Navbar( { shoppingCart, removeItemFromCart } ) {
 
   return (
     <>
@@ -26,7 +26,7 @@ function Navbar( { shoppingCart } ) {
                 Products
               </Button>
 
-              <ShoppingCart shoppingCart={ shoppingCart }></ShoppingCart>
+              <ShoppingCart shoppingCart={ shoppingCart } removeItemFromCart={ removeItemFromCart }></ShoppingCart>
 
             </Stack>
 
