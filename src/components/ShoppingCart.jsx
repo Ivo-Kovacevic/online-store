@@ -38,10 +38,11 @@ export default function ShoppingCart( { shoppingCart, removeItemFromCart } ) {
 
               <ListItemButton sx={{ flexGrow: 1 }}>
                 <Box component='img' src={item.image} sx={{ width: 150 }} />
-                <ListItemText>
+                <ListItemText sx={{ p: 1 }}>
                   <Typography>{capitalizeFirstLetter(item.brand)}</Typography>
                   <Typography>{item.model}</Typography>
                   <Typography variant='h6'>{item.price}.99 €</Typography>
+                  <Typography>Quantity: {item.quantity}</Typography>
                 </ListItemText>
               </ListItemButton>
 

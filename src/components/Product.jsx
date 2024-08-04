@@ -1,12 +1,19 @@
 import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import NumberInput from './NumberInput'
+import { useState } from 'react';
 
 const capitalizeFirstLetter = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
 function Product( { product, addItemToCart } ) {
+
+    const [quantity, setQuantity] = useState(0)
+
+    const handleChange = (event, value) => {
+        setQuantity(prevValue => value);
+    };
 
     return (
         <>
@@ -31,11 +38,11 @@ function Product( { product, addItemToCart } ) {
                     </CardActionArea>
 
                     <Box sx={{display: 'flex', justifyContent: 'center'}}>
-                        <NumberInput min={1}/>
+                        <NumberInput value={quantity} onChange={handleChange} min={1}/>
                     </Box>
 
                     <CardActions>
-                        <Button onClick={() => addItemToCart(product)} variant="contained" sx={{ width: '100%'}}>Add to cart</Button>
+                        <Button onClick={() => addItemToCart(product, quantity)} variant="contained" sx={{ width: '100%'}}>Add to cart</Button>
                     </CardActions>
 
                         

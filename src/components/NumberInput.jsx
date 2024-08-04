@@ -6,7 +6,7 @@ import { styled } from '@mui/system';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
-const NumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
+const NumberInput = React.forwardRef(function CustomNumberInput({ value, onChange, ...props }, ref) {
   return (
     <BaseNumberInput
       slots={{
@@ -25,6 +25,8 @@ const NumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
         },
       }}
       {...props}
+      value={value}
+      onChange={onChange}
       ref={ref}
     />
   );
