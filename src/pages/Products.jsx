@@ -12,8 +12,8 @@ function Products( { products, addItemToCart } ) {
 
         <Grid container spacing={2} alignItems="stretch" sx={{ my: 2 }}>
 
-          {products.map((product, index) => (
-            <Product product={product} addItemToCart={addItemToCart} key={index} />
+          {products.map((product) => (
+            <Product product={product} addItemToCart={addItemToCart} key={product.id} />
           ))}
 
         </Grid>

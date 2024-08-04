@@ -4,6 +4,8 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Products from './pages/Products'
 import { Container } from '@mui/material'
+import ProductDetails from './pages/ProductDetails'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
 
@@ -19,7 +21,8 @@ function App() {
         // Add quantity property
         setProducts(data.products.map((product) => ({
           ...product,
-          quantity: 0
+          quantity: 0,
+          id: uuidv4()
         }))); 
 
       } catch (error) {
@@ -64,6 +67,7 @@ function App() {
         <Routes>
           <Route path='/' element={ <Home /> } />
           <Route path='/products' element={ <Products products={ products } addItemToCart={ addItemToCart }/> } />
+          <Route path='/products/:id' element={ <ProductDetails addItemToCart={ addItemToCart } />} />
         </Routes>
 
         

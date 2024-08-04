@@ -2,6 +2,7 @@ import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia,
 import Grid from '@mui/material/Grid';
 import NumberInput from './NumberInput'
 import { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom'
 
 const capitalizeFirstLetter = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
@@ -21,7 +22,7 @@ function Product( { product, addItemToCart } ) {
                 
                 <Card>
 
-                    <CardActionArea>
+                    <CardActionArea component={RouterLink} to={`/products/${product.brand}-${product.id}`} state={{product, value: quantity}}>
                         <CardMedia
                             component="img"
                             image={product.image}
